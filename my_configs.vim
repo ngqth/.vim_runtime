@@ -8,7 +8,25 @@ set clipboard=unnamed
 set cmdheight=1
 hi Normal guibg=NONE ctermbg=NONE
 
-" set wildmode=longest
+" Redefine tab
+function! UseTabs()
+  set tabstop=4     " Size of a hard tabstop (ts).
+  set shiftwidth=4  " Size of an indentation (sw).
+  set noexpandtab   " Always uses tabs instead of space characters (noet).
+  set autoindent    " Copy indent from current line when starting a new line (ai).
+endfunction
+
+function! UseSpaces()
+  set tabstop=2     " Size of a hard tabstop (ts).
+  set shiftwidth=2  " Size of an indentation (sw).
+  set expandtab     " Always uses spaces instead of tab characters (et).
+  set softtabstop=0 " Number of spaces a <Tab> counts for. When 0, featuer is off (sts).
+  set autoindent    " Copy indent from current line when starting a new line.
+  set smarttab      " Inserts blanks on a <Tab> key (as per sw, ts and sts).
+endfunction
+" call UseTabs()
+call UseSpaces()
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " My keybindings
 nnoremap <C-l> $
